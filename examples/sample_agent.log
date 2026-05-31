@@ -1,0 +1,10 @@
+﻿[12:01:03] Starting coding-agent run
+[12:02:10] Edited src/example.py
+[12:03:22] WARNING: formatter changed files
+[12:04:31] Running pytest
+[12:04:34] command failed with exit code 1: python -m pytest
+Traceback (most recent call last):
+  File "src/example.py", line 10, in <module>
+    raise RuntimeError("demo failure")
+RuntimeError: demo failure
+== 1 failed, 4 passed in 0.42s ==
