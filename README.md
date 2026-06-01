@@ -1,4 +1,8 @@
-﻿# agent-run-report
+# agent-run-report
+
+[![tests](https://github.com/PlutoYQ-NTU/agent-run-report/actions/workflows/tests.yml/badge.svg)](https://github.com/PlutoYQ-NTU/agent-run-report/actions/workflows/tests.yml)
+![Python](https://img.shields.io/badge/python-3.9%2B-blue)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 `agent-run-report` is a lightweight Python CLI that turns a local coding-agent run into a clean Markdown and optional JSON report.
 
@@ -99,6 +103,13 @@ See `examples/sample_report.md` and `examples/sample_report.json` for complete e
 
 Planned ideas include GitHub PR comment mode, multiple log inputs, HTML output, richer test framework detection, integration with agent approval tools, and GitHub Actions support.
 
+## Related projects
+
+This repository is part of a small toolkit for local coding-agent workflows and small local LLM evaluation:
+
+- [`agent-approval-gate`](https://github.com/PlutoYQ-NTU/agent-approval-gate): classify command risk before a local coding agent runs shell commands.
+- [`agent-run-report`](https://github.com/PlutoYQ-NTU/agent-run-report): generate Markdown and JSON reports after a local coding-agent run.
+- [`mini-llm-eval-kit`](https://github.com/PlutoYQ-NTU/mini-llm-eval-kit): evaluate small local language models with configurable prompt suites.
 ## Contributing
 
 Issues and pull requests are welcome. Keep the project small, dependency-light, and useful for local maintainer workflows. Please add tests for parser or report-formatting changes.

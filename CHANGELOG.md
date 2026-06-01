@@ -1,6 +1,15 @@
-﻿# Changelog
+# Changelog
 
 All notable changes to this project will be documented in this file.
+
+## v0.1.1 - Unreleased
+
+### Added
+
+- Added GitHub Actions CI.
+- Added issue templates.
+- Added README badges.
+- Added related-project links.
 
 ## v0.1.0 - 2026-06-01
 
