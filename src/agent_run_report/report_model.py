@@ -1,4 +1,4 @@
-﻿"""Structured data models for agent run reports."""
+"""Structured data models for agent run reports."""
 
 from __future__ import annotations
 
@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Any
 
 
-@dataclass(slots=True)
+@dataclass
 class LogFindings:
     """Parsed findings extracted from an optional agent log."""
 
@@ -28,7 +28,7 @@ class LogFindings:
         }
 
 
-@dataclass(slots=True)
+@dataclass
 class Report:
     """Complete report payload used by Markdown and JSON writers."""
 
