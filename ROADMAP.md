@@ -11,4 +11,4 @@ Future ideas:
 - Integration with agent approval tools.
 - GitHub Actions support.
 - Config files for project-specific report templates.
-- Optional redaction helpers for common secret patterns.
+- Configurable redaction rules for project-specific secret patterns.

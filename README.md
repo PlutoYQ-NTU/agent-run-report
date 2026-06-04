@@ -48,6 +48,18 @@ Include a bounded diff excerpt:
 agent-run-report --repo . --log logs/latest.txt --out reports/run_report.md --include-diff --max-diff-lines 200
 ```
 
+Build a report summary without writing files:
+
+```bash
+agent-run-report --repo . --log logs/latest.txt --dry-run
+```
+
+Redact common token-like strings from report fields:
+
+```bash
+agent-run-report --repo . --log logs/latest.txt --out reports/run_report.md --redact
+```
+
 ## CLI options
 
 ```text
@@ -59,6 +71,8 @@ agent-run-report --repo . --log logs/latest.txt --out reports/run_report.md --in
 --max-diff-lines INT   Max lines of full diff excerpt. Default: 200.
 --title TEXT           Optional report title. Default: Agent Run Report.
 --no-next-steps        Disable automatic next-step suggestions.
+--redact               Redact common token-like strings from report text fields.
+--dry-run              Build the report and print a summary without writing files.
 ```
 
 ## Example output
@@ -84,6 +98,8 @@ Repository has 3 changed file(s). 1 error line and 1 warning line were detected 
 
 See `examples/sample_report.md` and `examples/sample_report.json` for complete examples.
 
+See `docs/report_schema.md` for JSON field documentation and `docs/privacy_redaction.md` for privacy and redaction guidance.
+
 ## Use cases
 
 - Codex CLI long-running job report.
@@ -96,6 +112,7 @@ See `examples/sample_report.md` and `examples/sample_report.json` for complete e
 - Log parsing is rule-based and intentionally conservative.
 - Test detection is based on text hints, not framework APIs.
 - Diff excerpts may contain sensitive source code if enabled.
+- Redaction is best-effort and can miss secrets.
 - The tool expects `git` to be available on `PATH`.
 - It does not upload, redact, or publish reports automatically.
 

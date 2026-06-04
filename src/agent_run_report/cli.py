@@ -10,6 +10,7 @@ from .git_utils import GitError, collect_git_info, is_git_repository, validate_r
 from .json_writer import write_json
 from .log_parser import parse_log_file
 from .markdown_writer import write_markdown
+from .redaction import redact_report
 from .report_model import LogFindings, Report, build_suggested_next_steps
 
 
@@ -27,6 +28,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--max-diff-lines", type=int, default=200, help="Max lines of full diff excerpt.")
     parser.add_argument("--title", default="Agent Run Report", help="Optional report title.")
     parser.add_argument("--no-next-steps", action="store_true", help="Disable automatic next-step suggestions.")
+    parser.add_argument("--redact", action="store_true", help="Redact common token-like strings from report text fields.")
+    parser.add_argument("--dry-run", action="store_true", help="Build the report and print a summary without writing files.")
     return parser
 
 
@@ -37,6 +40,15 @@ def main(argv: list[str] | None = None) -> int:
 
     try:
         report = build_report(args)
+        if args.redact:
+            report = redact_report(report)
+        if args.dry_run:
+            print(f"Dry run: report built for {report.repo_path}")
+            print(f"Changed files: {len(report.changed_files)}")
+            print(f"Markdown output: {args.out}")
+            if args.json_out:
+                print(f"JSON output: {args.json_out}")
+            return 0
         _ensure_parent(args.out)
         write_markdown(report, args.out)
         if args.json_out:

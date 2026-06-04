@@ -6,6 +6,10 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+- Added `--dry-run` for checking report generation without writing files.
+- Added `--redact` for best-effort masking of common token-like strings in report text fields.
+- Added report schema and privacy/redaction documentation.
+- Added contribution and pull request documentation.
 - Added GitHub Actions CI.
 - Added issue templates.
 - Added README badges.

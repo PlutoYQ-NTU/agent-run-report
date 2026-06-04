@@ -8,4 +8,6 @@ Users should not include secrets in agent logs. Logs can contain credentials, pr
 
 Review generated reports before publishing them in a GitHub issue, pull request, chat, ticket, or other shared location.
 
+The `--redact` option masks common token-like patterns in report text fields, but it is not a complete secret scanner. It can miss credentials and can redact harmless text. If a real credential appears in a log or report, rotate it.
+
 To report a vulnerability, open a private security advisory on GitHub if available, or contact the maintainers through the repository issue tracker without posting sensitive details publicly.
